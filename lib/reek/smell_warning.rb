@@ -42,7 +42,7 @@ module Reek
       listener.found_smell(self)
     end
 
-    def yaml_hash(warning_formatter=nil)
+    def yaml_hash(warning_formatter = nil)
       result = {
         'smell_category' => smell_detector.smell_category,
         'smell_type'     => smell_detector.smell_type,
@@ -52,7 +52,7 @@ module Reek
         'message'        => message
       }
       if warning_formatter.respond_to?(:explanatory_link)
-        result.merge!({'wiki_link' => warning_formatter.explanatory_link(smell_detector)})
+        result.merge!('wiki_link' => warning_formatter.explanatory_link(smell_detector))
       end
       parameters.each do |key, value|
         result[key.to_s] = value
